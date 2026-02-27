@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Light mode (unused - app is dark-first) */
+    --background: 0.18 0.012 200;
+    --foreground: 0.95 0.005 200;
+    --card: 0.22 0.012 200;
+    --card-foreground: 0.95 0.005 200;
+    --popover: 0.22 0.012 200;
+    --popover-foreground: 0.95 0.005 200;
+    --primary: 0.72 0.17 168;
+    --primary-foreground: 0.1 0.01 200;
+    --secondary: 0.28 0.012 200;
+    --secondary-foreground: 0.9 0.005 200;
+    --muted: 0.25 0.01 200;
+    --muted-foreground: 0.62 0.01 200;
+    --accent: 0.72 0.17 168;
+    --accent-foreground: 0.1 0.01 200;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.32 0.01 200;
+    --input: 0.28 0.012 200;
+    --ring: 0.72 0.17 168;
+
+    /* Chat-specific tokens */
+    --chat-bg: 0.16 0.015 200;
+    --sidebar-bg: 0.19 0.012 200;
+    --sidebar-header-bg: 0.22 0.012 200;
+    --msg-sent-bg: 0.52 0.14 168;
+    --msg-received-bg: 0.26 0.012 200;
+    --msg-sent-fg: 0.97 0.005 200;
+    --msg-received-fg: 0.92 0.005 200;
+    --active-conv-bg: 0.28 0.015 200;
+    --hover-conv-bg: 0.23 0.012 200;
+    --teal: 0.72 0.17 168;
+    --teal-dark: 0.58 0.14 168;
+    --unread-badge: 0.72 0.17 168;
+
+    --sidebar: 0.19 0.012 200;
+    --sidebar-foreground: 0.92 0.005 200;
+    --sidebar-primary: 0.72 0.17 168;
+    --sidebar-primary-foreground: 0.1 0.01 200;
+    --sidebar-accent: 0.28 0.015 200;
+    --sidebar-accent-foreground: 0.92 0.005 200;
+    --sidebar-border: 0.28 0.01 200;
+    --sidebar-ring: 0.72 0.17 168;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+  }
+
+  .dark {
+    --background: 0.16 0.015 200;
+    --foreground: 0.95 0.005 200;
+    --card: 0.22 0.012 200;
+    --card-foreground: 0.95 0.005 200;
+    --popover: 0.22 0.012 200;
+    --popover-foreground: 0.95 0.005 200;
+    --primary: 0.72 0.17 168;
+    --primary-foreground: 0.1 0.01 200;
+    --secondary: 0.28 0.012 200;
+    --secondary-foreground: 0.9 0.005 200;
+    --muted: 0.25 0.01 200;
+    --muted-foreground: 0.62 0.01 200;
+    --accent: 0.72 0.17 168;
+    --accent-foreground: 0.1 0.01 200;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.32 0.01 200;
+    --input: 0.28 0.012 200;
+    --ring: 0.72 0.17 168;
+
+    --sidebar: 0.19 0.012 200;
+    --sidebar-foreground: 0.92 0.005 200;
+    --sidebar-primary: 0.72 0.17 168;
+    --sidebar-primary-foreground: 0.1 0.01 200;
+    --sidebar-accent: 0.28 0.015 200;
+    --sidebar-accent-foreground: 0.92 0.005 200;
+    --sidebar-border: 0.28 0.01 200;
+    --sidebar-ring: 0.72 0.17 168;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.35 0.01 200);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.45 0.01 200);
+  }
+}
+
+@layer utilities {
+  .chat-bg {
+    background-color: oklch(var(--chat-bg));
+  }
+  .sidebar-bg {
+    background-color: oklch(var(--sidebar-bg));
+  }
+  .msg-sent {
+    background-color: oklch(var(--msg-sent-bg));
+    color: oklch(var(--msg-sent-fg));
+  }
+  .msg-received {
+    background-color: oklch(var(--msg-received-bg));
+    color: oklch(var(--msg-received-fg));
+  }
+  .teal-text {
+    color: oklch(var(--teal));
+  }
+  .teal-bg {
+    background-color: oklch(var(--teal));
+  }
+}

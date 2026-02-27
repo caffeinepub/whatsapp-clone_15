@@ -1,0 +1,27 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-diagnose-and-fix-the-profilesetupmodal-so-that-submitting-a-display-name-and-optional-avatar-url-successfully-calls-the-backend-registeruser-function-and-transitions-the-user-into-the-main-chat-layout-without-the-form-becoming-unresponsive-or-hanging",
+      "featureTitle": "Diagnose and fix the ProfileSetupModal so that submitting a display name (and optional avatar URL) successfully calls the backend registerUser function and transitions the user into the main chat layout without the form becoming unresponsive or hanging.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/hooks/useAuthFlow.ts",
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

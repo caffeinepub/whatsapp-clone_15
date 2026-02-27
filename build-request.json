@@ -1,0 +1,41 @@
+{
+  "kind": "build_request",
+  "title": "Fix unresponsive Create Profile screen",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "text": "Diagnose and fix the ProfileSetupModal so that submitting a display name (and optional avatar URL) successfully calls the backend registerUser function and transitions the user into the main chat layout without the form becoming unresponsive or hanging.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The app is not responding on create profile"
+        ]
+      },
+      "acceptanceCriteria": [
+        "After Internet Identity login, the ProfileSetupModal renders and the input fields are interactive.",
+        "Submitting a valid display name triggers the registerUser backend call without the UI freezing or the button becoming permanently disabled.",
+        "On successful registration, the modal closes and the user is taken to the main ChatLayout.",
+        "If the backend call fails, an error message is displayed and the form remains usable for retry.",
+        "The submit button shows a loading indicator while the mutation is in flight and re-enables after completion.",
+        "The useAuthFlow hook correctly reflects the newly registered state so the app does not re-show the ProfileSetupModal after registration."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useActor.ts.",
+    "Do not alter the backend registerUser function signature or existing data model."
+  ],
+  "nonGoals": [
+    "Adding new profile fields beyond display name and avatar URL.",
+    "Changing the overall authentication or login flow.",
+    "Modifying any other screen or feature outside the profile creation path."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

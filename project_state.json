@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Building a WhatsApp-like messaging app with real-time chat, user profiles, and contact management.",
+  "architectural_notes": [
+    "Real-time messaging requires WebSocket or similar protocol (e.g., Socket.IO)",
+    "Media uploads should use cloud storage (e.g., Firebase Storage or S3)"
+  ],
+  "known_issues": [
+    "Create profile screen is unresponsive / not working"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-build-a-react-frontend-with-internet-identity-login-show-a-login-screen-if-the-user-is-unauthenticated-after-login-check-if-the-user-is-registered-if-not-prompt-them-to-create-a-profile-with-a-display-name",
+      "title": "Build a React frontend with Internet Identity login. Show a login screen if the user is unauthenticated. After login, check if the user is registered; if not, prompt them to create a profile with a display name.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-main-chat-layout-with-three-panels-a-left-sidebar-listing-all-conversations-with-last-message-preview-timestamp-and-unread-count-badge-a-center-chat-panel-showing-message-history-and-a-message-input-bar-and-a-right-panel-for-contact-profile-info-the-layout-should-be-responsive-and-collapse-side-panels-on-smaller-screens",
+      "title": "Build a main chat layout with three panels: a left sidebar listing all conversations (with last message preview, timestamp, and unread count badge), a center chat panel showing message history and a message input bar, and a right panel for contact/profile info. The layout should be responsive and collapse side panels on smaller screens.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-message-status-indicators-in-the-chat-panel-show-a-single-checkmark-for-sent-double-checkmark-for-delivered-message-stored-and-double-filled-colored-checkmark-for-read-markmessagesread-called-by-recipient",
+      "title": "Implement message status indicators in the chat panel. Show a single checkmark for sent, double checkmark for delivered (message stored), and double filled/colored checkmark for read (markMessagesRead called by recipient).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-contacts-screen-accessible-from-the-sidebar-that-lists-the-user-s-contacts-allow-searching-for-other-registered-users-by-display-name-provide-buttons-to-add-or-remove-contacts-and-to-start-a-1-on-1-conversation-with-a-contact",
+      "title": "Add a contacts screen accessible from the sidebar that lists the user's contacts. Allow searching for other registered users by display name. Provide buttons to add or remove contacts and to start a 1-on-1 conversation with a contact.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-group-flow-allowing-the-authenticated-user-to-select-multiple-contacts-enter-a-group-name-and-create-a-group-conversation-the-group-should-then-appear-in-the-conversations-sidebar",
+      "title": "Add a 'New Group' flow allowing the authenticated user to select multiple contacts, enter a group name, and create a group conversation. The group should then appear in the conversations sidebar.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-user-profile-settings-screen-where-the-authenticated-user-can-update-their-display-name-and-avatar-url-changes-should-be-persisted-via-updateprofile",
+      "title": "Add a user profile settings screen where the authenticated user can update their display name and avatar URL. Changes should be persisted via updateProfile.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-clean-modern-dark-mode-visual-theme-inspired-by-contemporary-messaging-apps-use-a-deep-charcoal-dark-green-color-palette-with-high-contrast-white-text-teal-or-emerald-accent-colors-for-sent-message-bubbles-and-active-states-subtle-gray-for-received-message-bubbles-and-a-clean-sans-serif-typeface-enforce-the-theme-consistently-across-all-screens",
+      "title": "Apply a clean, modern dark-mode visual theme inspired by contemporary messaging apps. Use a deep charcoal/dark green color palette with high-contrast white text, teal or emerald accent colors for sent message bubbles and active states, subtle gray for received message bubbles, and a clean sans-serif typeface. Enforce the theme consistently across all screens.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-the-generated-app-logo-image-as-a-static-asset-in-the-frontend-display-it-on-the-login-welcome-screen",
+      "title": "Render the generated app logo image as a static asset in the frontend. Display it on the login/welcome screen.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-diagnose-and-fix-the-profilesetupmodal-so-that-submitting-a-display-name-and-optional-avatar-url-successfully-calls-the-backend-registeruser-function-and-transitions-the-user-into-the-main-chat-layout-without-the-form-becoming-unresponsive-or-hanging",
+      "title": "Diagnose and fix the ProfileSetupModal so that submitting a display name (and optional avatar URL) successfully calls the backend registerUser function and transitions the user into the main chat layout without the form becoming unresponsive or hanging.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Real-time 1-on-1 and group messaging",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "User registration and authentication (phone number or email)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Contact list and user profile management",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Media sharing (images, videos, files)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Message status indicators (sent, delivered, read)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Push notifications for new messages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Implement a backend actor that stores users, conversations, and messages. Each user has a principal ID, display name, avatar URL, and status. Each conversation tracks participants and metadata. Each message has a sender, timestamp, text content, and read status.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement backend functions for user registration and profile management: registerUser(displayName, avatarUrl), updateProfile(displayName, avatarUrl), getMyProfile(), getUserProfile(userId). Authentication is based on Internet Identity principal.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Implement backend functions for contact/friend management: addContact(userId), removeContact(userId), getContacts(). A contact list is stored per user.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement backend functions for conversations and messaging: createConversation(participantIds, isGroup, groupName), sendMessage(conversationId, text), getMessages(conversationId, limit, offset), markMessagesRead(conversationId), getConversations(). Support both 1-on-1 and group conversations.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "WhatsApp Clone",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

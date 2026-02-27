@@ -1,0 +1,19 @@
+{
+  "frontend/src/index.css": "Global styles with dark messaging app theme using OKLCH color tokens — deep charcoal/teal palette, custom scrollbar, Inter font, and chat-specific utility classes.",
+  "frontend/tailwind.config.js": "Tailwind config extended with Inter font, teal accent colors, chat-specific color tokens (chat-bg, chat-sent, chat-received, etc.), and message shadow utilities.",
+  "frontend/src/hooks/useQueries.ts": "All React Query hooks for backend integration — profile, contacts, conversations, messages, and mutations — plus formatting helpers. The `useGetCallerUserProfile` now catches backend \"Unauthorized/not registered\" trap errors and returns `null` instead of throwing, and `useRegisterUser` immediately populates the query cache with the fetched profile on success so the modal closes without waiting for a background refetch.",
+  "frontend/src/hooks/useAuthFlow.ts": "Custom hook combining Internet Identity state with the profile query to determine auth flow state. Now treats both `isFetched` and `isError` as \"settled\" states so `showProfileSetup` correctly activates even when the profile query errors (unregistered user), and `isReady` is computed based on whether the profile query has settled rather than just `isLoading`.",
+  "frontend/src/App.tsx": "Root app component that conditionally renders `LoginScreen`, `ProfileSetupModal`, or `ChatLayout` based on auth/profile state, with a loading splash screen. Loading condition refined to `isAuthenticated && !isReady` to avoid a blank screen flash.",
+  "frontend/src/components/LoginScreen.tsx": "Welcome/login screen with ChatFlow logo, feature highlights, and Internet Identity login button styled with the dark teal theme.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Full-screen modal for new users to enter a display name and optional avatar URL, calling `registerUser` on submit. Now includes inline error display with an `AlertCircle` icon, clears errors on input change, disables inputs during submission, and properly surfaces backend error messages.",
+  "frontend/src/components/ChatLayout.tsx": "Three-panel responsive layout managing active conversation state and routing between chat, contacts, and profile screens.",
+  "frontend/src/components/ConversationSidebar.tsx": "Left sidebar listing all conversations with avatars, last message previews, timestamps, unread badges, and header actions for new group/contacts/settings.",
+  "frontend/src/components/MessagePanel.tsx": "Center chat panel displaying message history with auto-scroll, read receipt marking, and a message input bar; fixes the `showSenderName` type to always be `boolean` by extracting `isGroup` with a `?? false` fallback.",
+  "frontend/src/components/MessageBubble.tsx": "Individual message bubble with sent/received styling, group sender names, timestamps, and status icons.",
+  "frontend/src/components/MessageStatusIcon.tsx": "Renders double-checkmark icons in white (delivered) or teal (read) to indicate message status.",
+  "frontend/src/components/MessageInput.tsx": "Auto-resizing textarea with send button, Enter-to-send support, and inline loading state.",
+  "frontend/src/components/InfoPanel.tsx": "Right info panel showing conversation/contact details, group member list, and message count stats.",
+  "frontend/src/components/ContactsScreen.tsx": "Contacts management screen with add-by-principal-ID, search, and per-contact message/remove actions.",
+  "frontend/src/components/NewGroupModal.tsx": "Dialog for creating group conversations — enter group name and select multiple contacts via checkboxes.",
+  "frontend/src/components/ProfileSettingsScreen.tsx": "Profile settings screen with editable display name and avatar URL, principal ID display with copy, and logout button."
+}

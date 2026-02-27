@@ -1,0 +1,41 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix unresponsive Create Profile screen",
+  "requirements": [
+    {
+      "id": "REQ-13",
+      "summary": "Fix ProfileSetupModal so submitting a display name and avatar URL successfully registers the user without the form hanging or becoming unresponsive",
+      "acceptanceCriteria": [
+        "After Internet Identity login, the ProfileSetupModal renders and the input fields are interactive.",
+        "Submitting a valid display name triggers the registerUser backend call without the UI freezing or the button becoming permanently disabled.",
+        "On successful registration, the modal closes and the user is taken to the main ChatLayout.",
+        "If the backend call fails, an error message is displayed and the form remains usable for retry.",
+        "The submit button shows a loading indicator while the mutation is in flight and re-enables after completion.",
+        "The useAuthFlow hook correctly reflects the newly registered state so the app does not re-show the ProfileSetupModal after registration."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "modify",
+          "description": "Fix the form submission handler to properly handle the registerUser mutation lifecycle including loading states, error handling, and success transitions. Ensure the submit button shows a loading indicator during mutation and re-enables after completion or error. Add proper error display when registration fails. Ensure form inputs remain interactive and the button does not become permanently disabled."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Review and fix the registerUser mutation to ensure it properly handles success/error states and invalidates the currentUserProfile query cache on successful registration. Ensure the mutation does not leave the UI in a hung state by properly resolving or rejecting the promise. Add proper error propagation to the UI layer."
+        },
+        {
+          "path": "frontend/src/hooks/useAuthFlow.ts",
+          "operation": "modify",
+          "description": "Review the profile loading and fetched state logic to ensure that after successful registration, the hook correctly reflects the newly registered state and does not cause the ProfileSetupModal to re-appear. Ensure the hook properly depends on the getCallerUserProfile query state and that cache invalidation flows through correctly."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Review the conditional rendering logic that shows ProfileSetupModal to ensure it correctly responds to profile state changes after registration. Verify that the showProfileSetup flag properly reacts to the updated user profile state from useAuthFlow and does not get stuck showing the modal after successful registration."
+        }
+      ]
+    }
+  ]
+}
